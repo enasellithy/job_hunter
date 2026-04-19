@@ -1,26 +1,26 @@
-name: AI Job Hunter Service
+# name: AI Job Hunter Service
 
-on:
-  schedule:
-    - cron: '0 */6 * * *'
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: '0 */6 * * *'
+#   workflow_dispatch:
 
-jobs:
-  run-agent:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Execution
-        env:
-          GDRIVE_SERVICE_ACCOUNT_KEY: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_KEY }}
-          RESUME_FILE_ID: ${{ secrets.RESUME_FILE_ID }}
-          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
-          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: python job_hunter.py
+# jobs:
+#   run-agent:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.11'
+#       - name: Install dependencies
+#         run: pip install -r requirements.txt
+#       - name: Execution
+#         env:
+#           GDRIVE_SERVICE_ACCOUNT_KEY: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_KEY }}
+#           RESUME_FILE_ID: ${{ secrets.RESUME_FILE_ID }}
+#           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+#           CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+#           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+#         run: python job_hunter.py
